@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <input type="text" id="input1_id"/>
+    <input type="text" id="input2_id"/>
+    </div>
+
+    <button>add</button>
+    <button>sub</button>
+    <button>mul</button>
+    <button>div</button>
+    
+    <input type="text" id = 'Result'/>
+
+</body>
+<script>
+    function add() {
+            var num1 = parseFloat(document.getElementById("input1_id").value);
+            var num2 = parseFloat(document.getElementById("input2_id").value);
+            var result = num1 + num2;
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+       <script></script>
+</head>
+<body>
+    <input type="text" id="textbox">
+    <h1 id="h1_id">THIS IS VINOTH</h1>
+    <button id="red_id">Red</button>
+    <button id="blue_id">Blue</button>
+    <script>
+     
+       var classH1 =  document.querySelector("#h1_id").classList
+        chgRed=()=>{
+            classH1.add("red");
+            classH1.remove("blue");
+        }
+        chgBlue=()=>{
+            classH1.add("blue");
+            classH1.remove("red");
+        }
+        document.querySelector("#red_id").addEventListener("click",chgRed);
+        document.querySelector("#blue_id").addEventListener("click",chgBlue);
+    
+          
+    </script>
+</body>
+</html>
