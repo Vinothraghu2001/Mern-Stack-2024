@@ -1,0 +1,54 @@
+.active{
+    background-color: #00ff15;
+}
+.footer{
+    align-items: center;
+    position: relative;
+    font-size: large;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+  }
+  .content div{
+    height: 25vh;
+    width: 25%;
+    border: 1px solid #000;
+  }
+  img{
+    height:175px;
+    width: 100%;
+  }
+  img{
+    width: 100%;
+    height: 175px;
+  }
+  .div2 h1{
+    background-color: #000;
+    color: wheat;
+    text-align: center;
+  }
+  .div3 h1{
+    background-color: aqua;
+    color: black;
+    text-align: center;
+  }
+  a:hover{
+    color: #00ff15;
+    
+}
+ b:hover{
+    text-decoration: underline;
+ }
+  @media(max-width: 600px){
+    .menu{
+        display: none;
+    }
+    body{
+        background-color: blue;
+    }
+    .content{
+        flex-direction: column;
+    }
+    
+}   
