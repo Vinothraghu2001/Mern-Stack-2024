@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Value To Array</title>
+</head>
+    
+    <style>
+        input[type="text"] {
+          padding: 10px;
+          font-size: 12px;
+          border: 3px solid #107053;
+          border-radius: 80px;
+          width: 200px;
+        }
+      
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          border: none;
+          border-radius: 50px;
+          background-color: #171413;
+          color: #fff;
+          cursor: pointer;
+        }
+      
+        button:hover {
+          background-color: #0e1a0e;
+        }
+      
+      </style>
+      <body>
+        <center>
+          <div><input type="text" id="myTextbox" placeholder="Enter a value" /></div>  
+     <div><button id="myButton">CLICK</button></div>  
+      </center>
+
+      </body>
+      <script>
+        let valuesArray = [];
+const inputField = document.getElementById("myTextbox");
+const addButton = document.getElementById("myButton");
+addButton.addEventListener('click',
+function() {
+    const inputValue = inputField.value;
+
+    if (inputValue.trim() !== ''){
+        valuesArray.push(inputValue);
+        console.log(valuesArray);
+
+        inputField.value = '';
+    } else{
+        console.log("please enter value");
+    }
+
+});
+      </script>
+  
+   
+</html>
