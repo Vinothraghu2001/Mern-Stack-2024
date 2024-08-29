@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import Header from './Header';
+import {useState} from 'react';
 
 const Home = () => {
     const countVal = useSelector((state) => state.counter);
     const dispatch = useDispatch();
+    const[status,setStatus] = useState(true);
 
     const add = () => {
         dispatch({
@@ -33,6 +35,7 @@ const Home = () => {
             <input type="button" value="sub"  onClick={sub}/>
             <h4> This will display in about page! </h4>
             <button onClick = { storeDetailsFun }> display </button>
+            {(status)?<p className="red">this is paragraph</p>:null}
         </div>
     );
     
