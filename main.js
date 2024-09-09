@@ -4,7 +4,7 @@ const { MongoClient } = require('mongodb');
 var app = express();
 app.use(express.json());
 const ex = "office"
-const url = "mongodb+srv://vinothraghu842:2WQRLBXKAPKAagNz@cluster0.ipgvz.mongodb.net/"; 
+const url = "mongodb+srv://vinothraghu842:feelfree@cluster0.ipgvz.mongodb.net/"; 
 const client = new MongoClient(url);
 app.post("/createEmployee",async(req,res)=>{
     let {name,email,password,mobile_no} = req.body;
@@ -37,6 +37,13 @@ app.get("/listempbyname/:name",async(req,res)=>{
     let db = client.db(ex);
     let list = await db.collection('employee').find({name:name}).toArray();
     res.status(200).json(list)
+})
+app.delete("/deleteUserByName",async(req,res)=>{
+    let {name} = req.query;
+    await client.connect();
+    let db =  client.db(ex)
+    await db.collection("employee").deleteOne({"name":name})
+    res.json({"msg":"user deleted"})
 })
 
 // Start the Express server
