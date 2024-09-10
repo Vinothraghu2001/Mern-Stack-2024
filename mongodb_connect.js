@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 // import { MongoClient } from 'mongodb'
 
 // Connection URL
-const url = "mongodb+srv://vinothraghu842:vinoth21012001@cluster0.ipgvz.mongodb.net/";          // changed with the our url 
+const url = "mongodb+srv://vinothraghu842:feelfree@cluster0.ipgvz.mongodb.net/";          // changed with the our url 
 const client = new MongoClient(url);
 
 // Database Name
