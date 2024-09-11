@@ -74,11 +74,11 @@ app.delete("/deletejobbyname",async(req,res)=>{
 })
 
 app.put("/updatejobbyname",async(req,res)=>{
-    let {name,password} = req.query;
+    let {mobile_no,name} = req.query;
     await client.connect();
     let db = client.db(ex);
-    await db.collection("jobs").updateOne({"name":name},{
-        $set: {"password":password}
+    await db.collection("jobs").updateOne({"mobile_no":mobile_no},{
+        $set: {"name":name}
         });
     res.json({"message":"Data updated successfully"})
 });
@@ -105,8 +105,8 @@ app.get('/updatejobusingget',async(req,res)=>{
 })
 
 // Start the Express server 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+app.listen(8000, () => {
+    console.log("Server is running on port 8080");
 });
 
 

@@ -1,8 +1,13 @@
 var express = require('express');
 const { MongoClient } = require('mongodb'); 
 
+var cors = require('cors');
+
+
 var app = express();
 app.use(express.json());
+app.use(cors());
+
 const ex = "office"
 const url = "mongodb+srv://vinothraghu842:feelfree@cluster0.ipgvz.mongodb.net/"; 
 const client = new MongoClient(url);
@@ -47,6 +52,6 @@ app.delete("/deleteUserByName",async(req,res)=>{
 })
 
 // Start the Express server
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+app.listen(3001, () => {
+    console.log("Server is running on port 3001");
 });
