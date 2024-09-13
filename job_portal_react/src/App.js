@@ -8,21 +8,32 @@ function App() {
   const nameReff = useRef();
   const cnameRef = useRef();
   const getData=async()=>{
-    let res = await fetch("http://localhost:3001/getjob",{method:"GET"});
+    let res = await fetch("http://localhost:8000/getjob",{method:"GET"});
     let json = await res.json();
     console.log(json);
     setJobList(json);
   }
+
+  const deletejob=async(id)=>{
+    let res = await fetch("http://localhost:8000/deletejobbyname?id="+id,{method:"DELETE"});
+    if(res.ok){
+      alert("deleted")
+    }else{
+      alert("Error while deleting")
+    }
+  }
+
   const createjob=async()=>{
     let data = {
       "name":nameReff.current.value,
       "company_name":cnameRef.current.value
     }
-    let res = await fetch("http://localhost:3001/createjob",{method:"POST",body:JSON.stringify(data),
+    let res = await fetch("http://localhost:8000/createjob",{method:"POST",body:JSON.stringify(data),
       headers:{"content-type":"application/json"}
     });
     let json = await res.json();
     console.log(json);
+  getData()
   }
   return (
     <div>
@@ -31,14 +42,20 @@ function App() {
         {
           jobList.map((obj,index)=>{
             return(
-              <h1>{obj.name}</h1>
+              <div>
+                  <h1 key={index}>{obj.name}</h1>
+                  {/* using arrow function coz for passing the _id as argument in normal function we can't pass the arguments */}
+                  <div><button onClick={()=>deletejob(obj._id)}>Delete this user</button></div> 
+              </div>
+              
             )
           })
         }
         <h1>Create Job Form</h1>
-        <div><input type = "name" ref = {nameReff} placeholder='Enter name'/></div>
-        <div><input type = "name" ref = {cnameRef}placeholder='Enter company name'/></div>
+        <div><input type = "name" ref = {nameReff} placeholder='Email'/></div>
+        <div><input type = "name" ref = {cnameRef}placeholder='password'/></div>
         <button onClick = {createjob}>Create Job</button>
+        
       </div>
       
     </div>
